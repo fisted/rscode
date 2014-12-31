@@ -94,7 +94,6 @@ init(int *argc, char ***argv)
 static void
 encode(const char *s)
 {
-	size_t rem = strlen(s);
 	while (*s) {
 		if (iseseq(s, false) || !isprint(*s) || !isascii(*s))
 			fprintf(stdout, "\\#%03o", (unsigned char)*s);
@@ -109,7 +108,6 @@ encode(const char *s)
 static void
 decode(const char *s)
 {
-	size_t rem = strlen(s);
 	while (*s) {
 		if (iseseq(s, true)) {
 			putchar(parseeseq(s));
@@ -207,7 +205,6 @@ main(int argc, char **argv)
 	init(&argc, &argv);
 
 	void (*encdec)(const char *) = s_decode ? decode : encode;
-
 
 	if (argc) {
 		while (argc--) {
