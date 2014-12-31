@@ -56,6 +56,7 @@ process_args(int *argc, char ***argv)
 				s_inpstr = stdin;
 			else if (!(s_inpstr = fopen(optarg, "r")))
 				err(EXIT_FAILURE, "fopen %s", optarg);
+			break;
 		case '0':
 			s_nulterm = true;
 			break;
